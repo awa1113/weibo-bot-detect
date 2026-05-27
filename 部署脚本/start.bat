@@ -1,0 +1,25 @@
+@echo off
+setlocal
+
+title Weibo Bot Detect - Start
+set "SCRIPT_DIR=%~dp0"
+set "PS_EXE=%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe"
+if not exist "%PS_EXE%" set "PS_EXE=powershell"
+
+echo [System] Starting services, please wait...
+echo [System] Log dir: %SCRIPT_DIR%logs
+echo.
+
+"%PS_EXE%" -NoLogo -NoProfile -ExecutionPolicy Bypass -File "%SCRIPT_DIR%start.ps1"
+set "EXIT_CODE=%ERRORLEVEL%"
+
+echo.
+if "%EXIT_CODE%"=="0" (
+  echo [OK] Start completed.
+) else (
+  echo [FAIL] Start failed. See log: %SCRIPT_DIR%logs\start_latest.log
+)
+echo.
+echo Press any key to close...
+pause
+exit /b %EXIT_CODE%

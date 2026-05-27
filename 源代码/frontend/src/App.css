@@ -1,0 +1,505 @@
+/* 微博方向社交机器人检测V1.0 */
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  height: 100vh;
+  overflow: hidden;
+  background: var(--surface-subtle);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  min-height: 0;
+  height: 100vh;
+  padding: 28px 20px;
+  border-right: 1px solid var(--line);
+  background: var(--surface);
+  overflow-y: auto;
+}
+
+.brand-block,
+.sidebar-footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-block strong,
+.sidebar-footer strong {
+  display: block;
+  color: var(--text-strong);
+}
+
+.brand-block span,
+.sidebar-footer span {
+  color: var(--text-soft);
+  font-size: 13px;
+}
+
+.logo-mark {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.nav-list {
+  display: grid;
+  gap: 10px;
+  margin: 28px 0;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px solid transparent;
+  border-radius: 18px;
+  background: transparent;
+  color: var(--text-soft);
+  cursor: pointer;
+  text-align: left;
+}
+
+.nav-item strong {
+  color: var(--text-strong);
+  font-size: 15px;
+}
+
+.nav-item span {
+  font-size: 12px;
+}
+
+.nav-item.active {
+  background: rgba(19, 89, 134, 0.08);
+  border-color: rgba(19, 89, 134, 0.16);
+}
+
+.content-shell {
+  box-sizing: border-box;
+  min-height: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 32px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.topbar h1,
+.panel-header h2,
+.report-hero h3 {
+  margin: 0;
+  color: var(--text-strong);
+}
+
+.status-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-soft);
+}
+
+.metric-grid,
+.content-columns,
+.score-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.panel {
+  margin-top: 18px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--surface);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.panel-header p,
+.panel-text,
+.report-row p,
+.login-brand p,
+.info-card p {
+  margin: 8px 0 0;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+
+.metric-card,
+.info-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface-subtle);
+}
+
+.metric-card span,
+.field-item span {
+  color: var(--text-soft);
+  font-size: 13px;
+}
+
+.metric-card strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 28px;
+  color: var(--text-strong);
+}
+
+.metric-card small {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-soft);
+}
+
+.report-list,
+.tweet-list {
+  display: grid;
+  gap: 12px;
+}
+
+.report-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface-subtle);
+  text-align: left;
+  cursor: pointer;
+}
+
+.report-row.active {
+  background: rgba(19, 89, 134, 0.08);
+  border-color: rgba(19, 89, 134, 0.2);
+}
+
+.pill,
+.risk-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pill.safe,
+.risk-badge.safe {
+  color: #1f7a4a;
+  background: rgba(31, 122, 74, 0.1);
+}
+
+.pill.warn,
+.risk-badge.warn {
+  color: #996300;
+  background: rgba(153, 99, 0, 0.12);
+}
+
+.pill.danger,
+.risk-badge.danger {
+  color: #b53a2f;
+  background: rgba(181, 58, 47, 0.12);
+}
+
+.report-detail {
+  display: grid;
+  gap: 18px;
+}
+
+.report-hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.feature-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.feature-section {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface-subtle);
+}
+
+.feature-section-header {
+  margin-bottom: 14px;
+}
+
+.feature-stack h4 {
+  margin: 0 0 12px;
+}
+
+.feature-stack p {
+  margin: 8px 0 0;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.field-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.field-item {
+  padding: 14px;
+  border-radius: 16px;
+  background: var(--surface-subtle);
+}
+
+.field-item strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-strong);
+  word-break: break-word;
+}
+
+.tweet-card {
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface-subtle);
+}
+
+.tweet-card p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.tweet-card div {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  color: var(--text-soft);
+  font-size: 13px;
+}
+
+.tweet-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.analysis-form,
+.settings-form {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.settings-form {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.analysis-form label,
+.settings-form label,
+.login-card label {
+  display: grid;
+  gap: 10px;
+  color: var(--text-soft);
+  font-size: 14px;
+}
+
+input,
+button {
+  font: inherit;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  background: white;
+  color: var(--text-strong);
+}
+
+input:focus {
+  outline: 2px solid rgba(19, 89, 134, 0.12);
+  border-color: var(--accent);
+}
+
+button {
+  border: none;
+  border-radius: 16px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  padding: 12px 18px;
+}
+
+.ghost-button {
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--text-strong);
+}
+
+.login-shell {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 24px;
+  background: var(--surface-subtle);
+}
+
+.login-card {
+  width: min(460px, 100%);
+  padding: 36px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--surface);
+}
+
+.login-brand {
+  margin-bottom: 26px;
+  text-align: center;
+}
+
+.login-brand .logo-mark {
+  margin: 0 auto 18px;
+}
+
+.login-brand h1 {
+  margin: 0;
+  color: var(--text-strong);
+}
+
+.login-card button {
+  margin-top: 8px;
+}
+
+.login-card a {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--text-soft);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.notice,
+.empty-state,
+.form-error {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 16px;
+}
+
+.notice.error,
+.form-error {
+  background: rgba(181, 58, 47, 0.12);
+  color: #9d3329;
+}
+
+.notice.success {
+  background: rgba(31, 122, 74, 0.1);
+  color: #1f7a4a;
+}
+
+.empty-state {
+  background: var(--surface-subtle);
+  color: var(--text-soft);
+}
+
+.reports-layout {
+  display: grid;
+  gap: 18px;
+}
+
+.command-block {
+  overflow: auto;
+  padding: 16px;
+  border-radius: 18px;
+  background: #eef3f7;
+  color: #12314a;
+}
+
+@media (max-width: 1100px) {
+  .metric-grid,
+  .content-columns,
+  .score-grid,
+  .field-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    height: auto;
+    overflow: visible;
+  }
+
+  .sidebar {
+    box-sizing: border-box;
+    height: auto;
+    overflow: visible;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .analysis-form,
+  .settings-form,
+  .metric-grid,
+  .content-columns,
+  .score-grid,
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content-shell {
+    box-sizing: border-box;
+    height: auto;
+    overflow: visible;
+    padding: 20px;
+  }
+
+  .topbar,
+  .report-hero,
+  .report-row,
+  .sidebar-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

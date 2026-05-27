@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+*.egg
+
+# Environment
+.env
+
+# Frontend
+node_modules/
+dist/
+
+# Runtime storage
+源代码/backend/storage/app.db
+源代码/backend/storage/app.pid
+源代码/backend/storage/*.log
+源代码/backend/storage/app_backup_*.db
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Training artifacts
+训练产物/
+
+# Deploy logs
+部署脚本/logs/
+
+# OS
+.DS_Store
+Thumbs.db
